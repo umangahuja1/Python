@@ -1,3 +1,7 @@
+'''
+THis script let's you login to twitter via terminal
+'''
+
 from selenium import webdriver
 from time import sleep
 
