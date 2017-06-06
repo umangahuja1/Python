@@ -1,3 +1,7 @@
+'''
+This script let's you post status on fb from terminal
+'''
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from time import sleep
@@ -44,3 +48,4 @@ print ('Posted')
 sleep(5)
 driver.quit()
 print("Game Over...")
+
