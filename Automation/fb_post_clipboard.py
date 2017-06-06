@@ -1,5 +1,5 @@
 '''
-This script list created to post status on fb from your clipboard via terminal
+This script is created to post status on fb from your clipboard via terminal
 '''
 
 from selenium import webdriver
