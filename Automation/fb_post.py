@@ -1,5 +1,5 @@
 '''
-This script let's you post status on fb from terminal
+This script is created to post status on fb from terminal
 '''
 
 from selenium import webdriver
