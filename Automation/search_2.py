@@ -1,3 +1,7 @@
+'''
+This script let you search anything on browser from terminal
+'''
+
 from time import sleep
 from selenium import webdriver
 
