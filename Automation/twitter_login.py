@@ -1,5 +1,5 @@
 '''
-THis script let's you login to twitter via terminal
+THis script let you login to twitter via terminal
 '''
 
 from selenium import webdriver
