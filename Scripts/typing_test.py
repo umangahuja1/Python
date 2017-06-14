@@ -1,3 +1,7 @@
+'''
+This is a simple script to cehck typing speed
+'''
+
 from time import time
 
 print()
