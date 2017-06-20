@@ -23,7 +23,7 @@ b = driver.find_element_by_class_name("js-password-field")
 b.send_keys(pwd)
 print("Password Entered")
 
-c=driver.find_element_by_css_selector("button.submit.btn.primary-btn")
+c=driver.find_element_by_css_selector("button.submit.EdgeButton.EdgeButton--primary.EdgeButtom--medium")
 c.click()
 print("Twitter Logged ")
 
