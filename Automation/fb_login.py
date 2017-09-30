@@ -1,41 +1,17 @@
-'''
-This script is created to perform facebook login from terminal
-'''
-
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from time import sleep
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.common.exceptions import NoSuchElementException
+from getpass import getpass
 
-usr=input('Enter Email Id:') 
-pwd=input('Enter Password:') 
+usr = input('Enter your username or email id: ')
+pwd = getpass('Enter your password : ')
 
 driver = webdriver.Chrome()
-
 driver.get('https://www.facebook.com/')
 
-print ("Opened facebook...")
-sleep(1)
+username_box = driver.find_element_by_id('email')
+username_box.send_keys(usr)
 
-a = driver.find_element_by_id('email')
-a.send_keys(usr)
-print ("Email Id entered...")
-sleep(1)
+password_box = driver.find_element_by_id('pass')
+password_box.send_keys(pwd)
 
-b = driver.find_element_by_id('pass')
-b.send_keys(pwd)
-print ("Password entered...")
-
-c = driver.find_element_by_id('loginbutton')
-c.click()
-
-print ("Done...")
-sleep(10)
-driver.quit()
-
-print("Game Over...")
+login_btn = driver.find_element_by_id('u_0_2')
+login_btn.submit()
