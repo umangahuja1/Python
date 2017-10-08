@@ -1,33 +1,17 @@
-'''
-THis script let you login to twitter via terminal
-'''
-
 from selenium import webdriver
-from time import sleep
+from getpass import getpass
 
-usr=input("Enter email id:")
-pwd=input("Enter Password:")
+usr = input('Enter your username or email : ')
+pwd = getpass('Enter your password : ')
 
-driver=webdriver.Chrome()
+driver = webdriver.Chrome()
 driver.get('https://twitter.com/login')
-print("Twitter Opened")
 
-sleep(2)
+usr_box = driver.find_element_by_class_name('js-username-field')
+usr_box.send_keys(usr)
 
-a = driver.find_element_by_class_name("js-username-field")
-a.send_keys(usr)
-print("Id Entered")
-sleep(1)
+pwd_box = driver.find_element_by_class_name('js-password-field')
+pwd_box.send_keys(pwd)
 
-b = driver.find_element_by_class_name("js-password-field")
-b.send_keys(pwd)
-print("Password Entered")
-
-c=driver.find_element_by_css_selector("button.submit.EdgeButton.EdgeButton--primary.EdgeButtom--medium")
-c.click()
-print("Twitter Logged ")
-
-sleep(5)
-driver.quit()
-print("Game Over")
-
+login_button = driver.find_element_by_css_selector('button.submit.EdgeButton.EdgeButton--primary.EdgeButtom--medium')
+login_button.submit()
