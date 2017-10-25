@@ -1,42 +1,29 @@
-'''
-This script is created to tweet image from terminal
-'''
-
 from selenium import webdriver
+from getpass import getpass
 from time import sleep
 
-usr=input("Enter email id:")
-pwd=input("Enter Password:")
-path=input('Enter the path of file you want to post:')+"/"+input('Enter file name:')
+usr = input('Enter your username or email : ')
+pwd = getpass('Enter your password : ')
+image_path = input('Enter your image path : ')
 
-driver=webdriver.Chrome()
+driver = webdriver.Chrome()
 driver.get('https://twitter.com/login')
-print("Twitter Opened")
 
-sleep(2)
+usr_box = driver.find_element_by_class_name('js-username-field')
+usr_box.send_keys(usr)
+sleep(3)
 
-a = driver.find_element_by_class_name("js-username-field")
-a.send_keys(usr)
-print("Id Entered")
-sleep(1)
+pwd_box = driver.find_element_by_class_name('js-password-field')
+pwd_box.send_keys(pwd)
+sleep(3)
 
-b = driver.find_element_by_class_name("js-password-field")
-b.send_keys(pwd)
-print("Password Entered")
+login_button = driver.find_element_by_css_selector('button.submit.EdgeButton.EdgeButton--primary.EdgeButtom--medium')
+login_button.submit()
+sleep(3)
 
-c=driver.find_element_by_css_selector("button.submit.EdgeButton.EdgeButton--primary.EdgeButtom--medium")
-c.click()
-print("Twitter Logged In")
+image_box = driver.find_element_by_css_selector('input.file-input.js-tooltip')
+image_box.send_keys(image_path)
+sleep(3)
 
-d=driver.find_element_by_css_selector('input.file-input.js-tooltip')
-d.send_keys(path)
-print("File entered")
-
-e=driver.find_element_by_css_selector('button.tweet-action.EdgeButton.EdgeButton--primary.js-tweet-btn')
-e.click()
-print("Posted")
-
-sleep(10)
-driver.quit()
-print("Game Over")
-
+tweet_button = driver.find_element_by_css_selector('button.tweet-action.EdgeButton.EdgeButton--primary.js-tweet-btn')
+tweet_button.click()
